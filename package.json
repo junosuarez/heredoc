@@ -1,0 +1,22 @@
+{
+  "name": "heredoc",
+  "version": "1.0.0",
+  "description": "multiline strings for javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jden/heredoc.git"
+  },
+  "keywords": [
+    "multiline",
+    "string",
+    "heredoc",
+    "literal"
+  ],
+  "author": "jden <jason@denizac.org>",
+  "license": "AS IS",
+  "readmeFilename": "README.md"
+}
