@@ -1,6 +1,10 @@
 # heredoc
 multiline strings for javascript
 
+## installation
+
+    $ npm install heredoc
+
 ## usage
 
 this technique takes advantage of `Function.prototype.toString()`
@@ -18,6 +22,10 @@ this technique takes advantage of `Function.prototype.toString()`
     (kinda like html <pre>)
     */})
     console.log(str)
+
+## AMD
+
+`heredoc` defines itself as an AMD module for use in AMD environments.
 
 ## kudos
 
