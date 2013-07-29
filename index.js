@@ -4,25 +4,32 @@
     return fn.toString().split('\n').slice(1,-1).join('\n') + '\n'
   }
 
+  var stripPattern = /^\s*(?=[^\s]+)/mg
+  // normalizes leading indentation https://github.com/jden/heredoc/pull/6
   heredoc.strip = function(fn) {
-    var text = this(fn)
-    var i = 0
+    var text = heredoc(fn)
+    
+    var indentLen = text.match(stripPattern)
+                                 .reduce(function (min, line) {
+      return Math.min(min, line.length)
+    }, Infinity)
 
-    while (text.charAt(i++) === ' ') ;
-
-    var indent = new RegExp('^ {' + (i - 1) + '}', 'mg')
-
-    return i > 0 ? text.replace(indent, '') : text
+    var indent = new RegExp('^\\s{' + indentLen + '}', 'mg')
+    return indentLen > 0
+      ? text.replace(indent, '')
+      : text
   }
 
-  if (typeof exports === 'object')
+  // support AMD
+  if (typeof exports === 'object') {
     module.exports = heredoc
-
-  else if (typeof define === 'function' && define.amd)
+  }
+  else if (typeof define === 'function' && define.amd) {
     define(function() {
       return heredoc
     })
-
-  else
+  }
+  else {
     root.heredoc = heredoc
+  }
 }(this)

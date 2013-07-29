@@ -1,29 +1,62 @@
-"use strict";
-
-
 var heredoc = require('../')
-
-require('should')
-
+var chai = require('chai')
+chai.should()
 
 describe('heredoc.strip', function() {
 
-  var text
-
-  before(function() {
-    text = heredoc.strip(function() {/*
+  it('strips leading indentation', function() {
+    var text = heredoc.strip(function() {/*
       <body>
         <p>indented strings are fine.</p>
         <p>the preceding spaces will be shrinked.</p>
       </body>
     */})
+    text.split('\n').should.deep.equal([
+      '<body>',
+      '  <p>indented strings are fine.</p>',
+      '  <p>the preceding spaces will be shrinked.</p>',
+      '</body>',
+      ''
+    ])
+
   })
 
-  it('should be able to define text in indented style', function() {
-    var lines = text.split('\n')
+  it('strips tabs or spaces', function() {
+    var text = heredoc.strip(function() {/*
+			<body>
+				<p>indented strings are fine.</p>
+				<p>the preceding spaces will be shrinked.</p>
+			</body>
+    */})
+    text.split('\n').should.deep.equal([
+      '<body>',
+      '\t<p>indented strings are fine.</p>',
+      '\t<p>the preceding spaces will be shrinked.</p>',
+      '</body>',
+      ''
+    ])
 
-    lines[0].should.equal('<body>')
-    lines[1].should.match(/^  [^ ]/)
-    lines[lines.length - 2].should.equal('</body>')
   })
+
+  it('uses least-indentent line as basline', function () {
+    var text = heredoc.strip(function () {/*
+          </a>
+        </li>
+        <li>
+          <a href="http://zombo.com">anything is possible</a>
+        </li>
+      </ul>
+    */})
+    text.split('\n').should.deep.equal([
+      '    </a>',
+      '  </li>',
+      '  <li>',
+      '    <a href="http://zombo.com">anything is possible</a>',
+      '  </li>',
+      '</ul>',
+      ''
+    ])
+   
+  })
+
 })
