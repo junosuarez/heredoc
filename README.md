@@ -1,14 +1,11 @@
 # heredoc
 multiline strings for javascript
 
-## installation
-
-    $ npm install heredoc
-
 ## usage
 
 this technique takes advantage of `Function.prototype.toString()`
 
+```js
     var heredoc = require('heredoc')
     var str = heredoc(function () {/*
     within this comment block,
@@ -22,10 +19,43 @@ this technique takes advantage of `Function.prototype.toString()`
     (kinda like html <pre>)
     */})
     console.log(str)
+```
+
+You can also strip leading indentation:
+
+```js
+var text = heredoc.strip(function() {/*
+      <body>
+        <p>indented strings are fine.</p>
+        <p>the preceding spaces will be shrinked.</p>
+      </body>
+    */})
+```
+
+will result in:
+
+```
+<body>
+  <p>indented strings are fine.</p>
+  <p>the preceding spaces will be shrinked.</p>
+</body>
+
+```
 
 ## AMD
 
 `heredoc` defines itself as an AMD module for use in AMD environments.
+
+## installation
+
+    $ npm install heredoc
+
+## contributors
+  
+  - jden <jason@denizac.org>
+  - Jason Kuhrt <jasonkuhrt@me.com>
+  - Guy Bedford <guybedford@gmail.com>
+  - Jake Chen <jakeplus@gmail.com>
 
 ## kudos
 
