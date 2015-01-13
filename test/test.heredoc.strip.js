@@ -56,7 +56,22 @@ describe('heredoc.strip', function() {
       '</ul>',
       ''
     ])
-   
+
+  })
+
+  it('keeps empty lines', function() {
+    var text = heredoc.strip(function() {/*
+      # Title
+
+      Hi there.
+    */})
+    text.split('\n').should.deep.equal([
+      '# Title',
+      '',
+      'Hi there.',
+      ''
+    ])
+
   })
 
 })

@@ -4,17 +4,17 @@
     return fn.toString().split('\n').slice(1,-1).join('\n') + '\n'
   }
 
-  var stripPattern = /^\s*(?=[^\s]+)/mg
+  var stripPattern = /^[ \t]*(?=[^\s]+)/mg
   // normalizes leading indentation https://github.com/jden/heredoc/pull/6
   heredoc.strip = function(fn) {
     var text = heredoc(fn)
-    
+
     var indentLen = text.match(stripPattern)
                                  .reduce(function (min, line) {
       return Math.min(min, line.length)
     }, Infinity)
 
-    var indent = new RegExp('^\\s{' + indentLen + '}', 'mg')
+    var indent = new RegExp('^[ \\t]{' + indentLen + '}', 'mg')
     return indentLen > 0
       ? text.replace(indent, '')
       : text
