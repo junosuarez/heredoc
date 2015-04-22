@@ -42,6 +42,21 @@ will result in:
 
 ```
 
+You can also pass params to heredoc:
+
+```js
+var text = heredoc.strip(function() {/*
+      My first name is {firstname} and my last name is {lastname}
+    */}, {firstname: "Andrew", lastname: "Schools"})
+```
+
+will result in:
+
+```
+My first name is Andrew and my last name is Schools
+
+```
+
 ## AMD
 
 `heredoc` defines itself as an AMD module for use in AMD environments.
@@ -51,7 +66,7 @@ will result in:
     $ npm install heredoc
 
 ## contributors
-  
+
   - jden <jason@denizac.org>
   - Jason Kuhrt <jasonkuhrt@me.com>
   - Guy Bedford <guybedford@gmail.com>

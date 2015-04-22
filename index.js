@@ -1,7 +1,13 @@
 !function (root) {
 
-  function heredoc(fn) {
-    return fn.toString().split('\n').slice(1,-1).join('\n') + '\n'
+  function heredoc(fn, values) {
+    var data = fn.toString().split('\n').slice(1,-1).join('\n') + '\n';
+
+    for (var key in values) {
+      data = data.replace("{"+key+"}", values[key]);
+    }
+
+    return data;
   }
 
   var stripPattern = /^[ \t]*(?=[^\s]+)/mg
