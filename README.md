@@ -47,7 +47,7 @@ You can also pass params to heredoc:
 ```js
 var text = heredoc.strip(function() {/*
       My first name is {firstname} and my last name is {lastname}
-    */})
+    */}, {firstname: "Andrew", lastname: "Schools"})
 ```
 
 will result in:
