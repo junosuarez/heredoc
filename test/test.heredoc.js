@@ -1,6 +1,8 @@
-var heredoc = require('../')
-var chai = require('chai')
-chai.should()
+'use strict'
+
+var heredoc = require('../index')
+require('should')
+
 
 describe('heredoc', function() {
 

@@ -1,7 +1,21 @@
 !function (root) {
 
+  // start matching after: comment start block => ! or @preserve => optional whitespace => newline
+  // stop matching before: last newline => optional whitespace => comment end block
+  var reCommentContents = /\/\*!?(?:\@preserve)?[ \t]*(?:\r\n|\n)([\s\S]*?)[ \t]*\*\//
+
   function heredoc(fn) {
-    return fn.toString().split('\n').slice(1,-1).join('\n') + '\n'
+    if (typeof fn !== 'function') {
+      throw new TypeError('Expected a function')
+    }
+
+    var match = reCommentContents.exec(fn.toString())
+
+    if (!match) {
+      throw new TypeError('Multiline comment missing.')
+    }
+
+    return match[1]
   }
 
   var stripPattern = /^[ \t]*(?=[^\s]+)/mg
