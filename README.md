@@ -1,6 +1,9 @@
 # heredoc
 multiline strings for javascript
 
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard) [![Circle CI](https://circleci.com/gh/jden/heredoc.svg?style=svg)](https://circleci.com/gh/jden/heredoc) 
+
+
 ## usage
 
 this technique takes advantage of `Function.prototype.toString()`
