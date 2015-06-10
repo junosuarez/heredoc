@@ -4,7 +4,8 @@
   "description": "multiline strings for javascript",
   "main": "index.js",
   "scripts": {
-    "test": "node node_modules/mocha/bin/mocha"
+    "test": "mocha",
+    "start": "oceanify serve"
   },
   "repository": {
     "type": "git",
@@ -24,7 +25,8 @@
   "license": "AS IS",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "mocha": "~1.12.0",
-    "chai": "~1.7.2"
+    "mocha": "~2.2.5",
+    "oceanifier": "~3.0.1",
+    "should": "~6.0.3"
   }
 }

@@ -50,8 +50,19 @@ will result in:
 
     $ npm install heredoc
 
+## testing
+
+Install all dependencies:
+
+```bash
+$ npm install
+$ npm test        # run tests in node
+$ npm start       # start a server to run tests in browser
+$ open http://localhost:5000/test/runner.html
+```
+
 ## contributors
-  
+
   - jden <jason@denizac.org>
   - Jason Kuhrt <jasonkuhrt@me.com>
   - Guy Bedford <guybedford@gmail.com>

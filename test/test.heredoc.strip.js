@@ -1,6 +1,8 @@
-var heredoc = require('../')
-var chai = require('chai')
-chai.should()
+'use strict'
+
+var heredoc = require('../index')
+require('should')
+
 
 describe('heredoc.strip', function() {
 
@@ -11,7 +13,7 @@ describe('heredoc.strip', function() {
         <p>the preceding spaces will be shrinked.</p>
       </body>
     */})
-    text.split('\n').should.deep.equal([
+    text.split('\n').should.eql([
       '<body>',
       '  <p>indented strings are fine.</p>',
       '  <p>the preceding spaces will be shrinked.</p>',
@@ -28,7 +30,7 @@ describe('heredoc.strip', function() {
 				<p>the preceding spaces will be shrinked.</p>
 			</body>
     */})
-    text.split('\n').should.deep.equal([
+    text.split('\n').should.eql([
       '<body>',
       '\t<p>indented strings are fine.</p>',
       '\t<p>the preceding spaces will be shrinked.</p>',
@@ -47,7 +49,7 @@ describe('heredoc.strip', function() {
         </li>
       </ul>
     */})
-    text.split('\n').should.deep.equal([
+    text.split('\n').should.eql([
       '    </a>',
       '  </li>',
       '  <li>',
@@ -65,7 +67,7 @@ describe('heredoc.strip', function() {
 
       Hi there.
     */})
-    text.split('\n').should.deep.equal([
+    text.split('\n').should.eql([
       '# Title',
       '',
       'Hi there.',
