@@ -15,7 +15,9 @@
     /* eslint-disable */
     mocha.ui('bdd')
     define('should', should)  // use the pre-build version of should
-    seajs.use('heredoc/test/runner')
+    seajs.use('heredoc/test/runner', function() {
+      mocha.run()
+    })
   </script>
 </body>
 </html>

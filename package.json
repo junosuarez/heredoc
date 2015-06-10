@@ -4,7 +4,7 @@
   "description": "multiline strings for javascript",
   "main": "index.js",
   "scripts": {
-    "test": "node node_modules/mocha/bin/mocha",
+    "test": "mocha",
     "start": "oceanify serve"
   },
   "repository": {
