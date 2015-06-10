@@ -1,12 +1,12 @@
 'use strict'
+/* globals describe, it */
 
 var heredoc = require('../index')
 require('should')
 
+describe('heredoc', function () {
 
-describe('heredoc', function() {
-
-  it('should be able to define string in function', function() {
+  it('should be able to define string in function', function () {
     var text = heredoc(function () {/*
 within this comment block,
 any text

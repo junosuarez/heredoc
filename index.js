@@ -1,10 +1,10 @@
-!function (root) {
+(function (root) {
 
   // start matching after: comment start block => ! or @preserve => optional whitespace => newline
   // stop matching before: last newline => optional whitespace => comment end block
   var reCommentContents = /\/\*!?(?:\@preserve)?[ \t]*(?:\r\n|\n)([\s\S]*?)[ \t]*\*\//
 
-  function heredoc(fn) {
+  function heredoc (fn) {
     if (typeof fn !== 'function') {
       throw new TypeError('Expected a function')
     }
@@ -20,7 +20,7 @@
 
   var stripPattern = /^[ \t]*(?=[^\s]+)/mg
   // normalizes leading indentation https://github.com/jden/heredoc/pull/6
-  heredoc.strip = function(fn) {
+  heredoc.strip = function (fn) {
     var text = heredoc(fn)
 
     var indentLen = text.match(stripPattern)
@@ -37,13 +37,11 @@
   // support AMD
   if (typeof exports === 'object') {
     module.exports = heredoc
-  }
-  else if (typeof define === 'function' && define.amd) {
-    define(function() {
+  } else if (typeof root.define === 'function' && root.define.amd) {
+    root.define(function () {
       return heredoc
     })
-  }
-  else {
+  } else {
     root.heredoc = heredoc
   }
-}(this)
+}(this))

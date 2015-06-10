@@ -4,8 +4,8 @@
   "description": "multiline strings for javascript",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "start": "oceanify serve"
+    "test": "standard && mocha",
+    "test-browser": "echo open http://localhost:5000/test/runner.html && oceanify serve"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,8 @@
   "devDependencies": {
     "mocha": "~2.2.5",
     "oceanifier": "~3.0.1",
-    "should": "~6.0.3"
+    "opener": "^1.4.1",
+    "should": "~6.0.3",
+    "standard": "^4.0.1"
   }
 }

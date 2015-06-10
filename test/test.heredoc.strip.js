@@ -1,13 +1,13 @@
 'use strict'
+/* globals describe, it */
 
 var heredoc = require('../index')
 require('should')
 
+describe('heredoc.strip', function () {
 
-describe('heredoc.strip', function() {
-
-  it('strips leading indentation', function() {
-    var text = heredoc.strip(function() {/*
+  it('strips leading indentation', function () {
+    var text = heredoc.strip(function () {/*
       <body>
         <p>indented strings are fine.</p>
         <p>the preceding spaces will be shrinked.</p>
@@ -23,8 +23,8 @@ describe('heredoc.strip', function() {
 
   })
 
-  it('strips tabs or spaces', function() {
-    var text = heredoc.strip(function() {/*
+  it('strips tabs or spaces', function () {
+    var text = heredoc.strip(function () {/*
 			<body>
 				<p>indented strings are fine.</p>
 				<p>the preceding spaces will be shrinked.</p>
@@ -61,8 +61,8 @@ describe('heredoc.strip', function() {
 
   })
 
-  it('keeps empty lines', function() {
-    var text = heredoc.strip(function() {/*
+  it('keeps empty lines', function () {
+    var text = heredoc.strip(function () {/*
       # Title
 
       Hi there.
