@@ -22,7 +22,7 @@
     "jden <jason@denizac.org>",
     "Jake Chen <jakeplus@gmail.com>"
   ],
-  "license": "AS IS",
+  "license": "ISC",
   "readmeFilename": "README.md",
   "devDependencies": {
     "mocha": "~2.2.5",
