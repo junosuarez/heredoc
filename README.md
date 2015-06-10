@@ -57,7 +57,7 @@ Install all dependencies:
 ```bash
 $ npm install
 $ npm test        # run tests in node
-$ npm start       # start a server to run tests in browser
+$ npm run test-browser       # start a server to run tests in browser
 $ open http://localhost:5000/test/runner.html
 ```
 
@@ -73,4 +73,4 @@ $ open http://localhost:5000/test/runner.html
 thanks to @izs - I first saw this technique when reading through npm source. I find it to be much neater than lots of manual string concatenation.
 
 ## license
-AS-IS
+ISC
