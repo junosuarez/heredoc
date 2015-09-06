@@ -1,8 +1,9 @@
 'use strict'
+/* globals mocha */
 
-mocha.setup('bdd')
+if (typeof mocha !== 'undefined') mocha.setup('bdd')
 
 require('./test.heredoc')
 require('./test.heredoc.strip')
 
-mocha.run()
+if (typeof mocha !== 'undefined') mocha.run()
